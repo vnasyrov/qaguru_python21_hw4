@@ -7,7 +7,9 @@ def test_greeting():
     name = "Анна"
     age = 25
     # TODO Сформируйте нужную строку
-    output = ("Привет, " + (name) + "! " + "Тебе " + str(age) + " лет.")
+    #output = f"Привет, {name}! Тебе {age} лет."
+    output = "Привет, {}! Тебе {} лет.".format(name, age)
+    #output = ("Привет, " + (name) + "! " + "Тебе " + str(age) + " лет.")
     #output = "Привет, Анна! Тебе 25 лет."
     print(output)
 
@@ -44,11 +46,13 @@ def test_circle():
     r = 23
     # TODO сосчитайте площадь
     area = math.pi * (r * r)
+    print(area)
     assert area == 1661.9025137490005
 
 
     # TODO сосчитайте длину окружности
     length = 2 * r * math.pi
+    print(length)
 
     assert length == 144.51326206513048
 
@@ -59,7 +63,8 @@ def test_random_list():
     """
     import random
     # TODO создайте список
-    l = [random.randint(1, 100) for num in range(10)]
+    random.seed(0)
+    l = [random.randint(1, 100) for _ in range(10)]
     l.sort()
     print(l)
     assert len(l) == 10
@@ -90,7 +95,7 @@ def test_dicts():
     second = [1, 2, 3, 4, 5]
     # TODO создайте словарь
     d = dict(zip(first, second))
-    print(first, second, d)
+    print(d)
 
     assert isinstance(d, dict)
     assert len(d) == 5
